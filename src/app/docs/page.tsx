@@ -6,46 +6,64 @@ import { InfoCard } from "@/components/cli/InfoCard";
 import Link from "next/link";
 
 const navigationItems = [
-  { id: "getting-started", title: "Getting Started", href: "#getting-started" },
+  { id: "overview", title: "Overview", href: "#overview" },
   { id: "installation", title: "Installation", href: "#installation" },
   { id: "usage", title: "Usage", href: "#usage" },
-  { id: "features", title: "Features", href: "#features" },
-  { id: "configuration", title: "Configuration", href: "#configuration" },
-  { id: "api-reference", title: "API Reference", href: "#api-reference" },
+  { id: "frameworks", title: "Supported Frameworks", href: "#frameworks" },
+  { id: "templates", title: "Templates", href: "#templates" },
   { id: "examples", title: "Examples", href: "#examples" },
-  { id: "troubleshooting", title: "Troubleshooting", href: "#troubleshooting" },
+  { id: "development", title: "Development", href: "#development" },
+  { id: "contributing", title: "Contributing", href: "#contributing" },
 ];
 
-const features = [
+const frameworks = [
   {
-    title: "Interactive CLI",
-    description: "Beautiful command-line interface with interactive prompts and real-time feedback.",
-    icon: "💻",
+    name: "Next.js",
+    description: "React framework with SSR, SSG, and API routes",
+    type: "Full-Stack",
+    theme: "blue",
   },
   {
-    title: "Smart Package Detection",
-    description: "Automatically detects and suggests relevant packages based on your project type.",
-    icon: "🎯",
+    name: "React",
+    description: "JavaScript library for building user interfaces",
+    type: "Frontend",
+    theme: "cyan",
   },
   {
-    title: "Zero Configuration",
-    description: "Works out of the box with sensible defaults and minimal setup required.",
-    icon: "⚡",
+    name: "Vue.js",
+    description: "Progressive JavaScript framework",
+    type: "Frontend",
+    theme: "green",
   },
   {
-    title: "Cross-Platform",
-    description: "Runs seamlessly on Windows, macOS, and Linux with consistent behavior.",
-    icon: "🌐",
+    description: "Platform for building mobile and desktop web applications",
+    name: "Angular",
+    type: "Frontend",
+    theme: "red",
   },
   {
-    title: "TypeScript Support",
-    description: "Full TypeScript support with type definitions and IntelliSense integration.",
-    icon: "🔷",
+    name: "Express.js",
+    description: "Fast, unopinionated web framework for Node.js",
+    type: "Backend",
+    theme: "green",
   },
   {
-    title: "Open Source",
-    description: "MIT licensed and available on GitHub for community contributions.",
-    icon: "📖",
+    name: "Remix",
+    description: "Full stack web framework focused on web standards",
+    type: "Frontend",
+    theme: "blue",
+  },
+  {
+    name: "NestJS",
+    description: "Progressive Node.js framework for building scalable applications",
+    type: "Backend",
+    theme: "magenta",
+  },
+  {
+    name: "Rust",
+    description: "Systems programming language with memory safety",
+    type: "Backend",
+    theme: "yellow",
   },
 ];
 
@@ -54,20 +72,20 @@ export default function DocsPage() {
     <main className="min-h-screen bg-gradient-to-br from-slate-900 via-indigo-900 to-slate-800 text-white">
       {/* Header */}
       <AnimatedSection>
-        <div className="px-4 py-12">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12">
           <div className="text-center mb-12">
             <h1 className="text-5xl font-extrabold mb-4 bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
               Documentation
             </h1>
             <p className="text-xl opacity-90 max-w-2xl mx-auto">
-              Complete guide to using package-installer-cli for effortless npm package management
+              Complete guide to using Package Installer CLI for scaffolding web applications
             </p>
           </div>
         </div>
       </AnimatedSection>
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 pb-12">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 pb-12">
         <div className="grid lg:grid-cols-4 gap-8">
           {/* Navigation Sidebar */}
           <div className="lg:col-span-1">
@@ -76,27 +94,30 @@ export default function DocsPage() {
 
           {/* Content */}
           <div className="lg:col-span-3 space-y-12">
-            {/* Getting Started */}
-            <DocsSection title="Getting Started" id="getting-started">
+            {/* Overview */}
+            <DocsSection title="Overview" id="overview">
               <p className="text-lg text-slate-300 leading-relaxed">
-                package-installer-cli is a powerful command-line tool that simplifies the process of 
-                installing and managing npm packages. It provides an interactive interface for selecting 
-                packages and automatically configures your project with the chosen dependencies.
+                Package Installer CLI (pi) is a modern, cross-platform CLI tool designed to scaffold web applications 
+                with beautiful styling, interactive prompts, and comprehensive framework support. Create production-ready 
+                projects in seconds with the ultimate developer experience.
               </p>
               
-              <InfoCard type="info" title="Quick Start">
-                <p>
-                  Get up and running in seconds with our simple installation process. 
-                  The CLI will guide you through each step with clear instructions and helpful prompts.
-                </p>
+              <InfoCard type="info" title="Key Features">
+                <ul className="list-disc list-inside space-y-2">
+                  <li><strong>10+ Frameworks:</strong> Next.js, React, Vue, Angular, Express, Rust, Remix, NestJS</li>
+                  <li><strong>Language Support:</strong> JavaScript & TypeScript</li>
+                  <li><strong>UI Libraries:</strong> Shadcn/ui, Material-UI, Headless UI</li>
+                  <li><strong>Bundler Options:</strong> Vite and more</li>
+                  <li><strong>Cross-platform:</strong> Windows, macOS, Linux, WSL</li>
+                  <li><strong>Dual Commands:</strong> Use `pi` or `package-installer`</li>
+                </ul>
               </InfoCard>
             </DocsSection>
 
             {/* Installation */}
             <DocsSection title="Installation" id="installation">
               <p className="text-lg text-slate-300 leading-relaxed mb-6">
-                Install package-installer-cli globally or use it directly with npx. We recommend 
-                using npx for the latest version without global installation.
+                Install Package Installer CLI globally or use it directly with npx. We recommend using npx for the latest version.
               </p>
 
               <div className="space-y-6">
@@ -117,7 +138,7 @@ export default function DocsPage() {
                     title="Install globally"
                   />
                   <p className="text-sm text-slate-400 mt-2">
-                    After global installation, you can run: <code className="text-green-300">package-installer-cli</code>
+                    After global installation, you can use: <code className="text-green-300">pi</code> or <code className="text-green-300">package-installer</code>
                   </p>
                 </div>
 
@@ -134,16 +155,16 @@ export default function DocsPage() {
             {/* Usage */}
             <DocsSection title="Usage" id="usage">
               <p className="text-lg text-slate-300 leading-relaxed mb-6">
-                The CLI provides an intuitive interface for package management. Here's how to use it effectively.
+                The CLI provides an intuitive interface for scaffolding web applications. Here are the basic commands.
               </p>
 
               <div className="space-y-6">
                 <div>
                   <h3 className="text-lg font-semibold mb-3 text-indigo-300">Basic Usage</h3>
                   <CodeBlock 
-                    code="npx package-installer-cli"
+                    code="pi"
                     language="bash"
-                    title="Start the interactive CLI"
+                    title="Start the interactive scaffolder"
                   />
                 </div>
 
@@ -151,137 +172,112 @@ export default function DocsPage() {
                   <h3 className="text-lg font-semibold mb-3 text-indigo-300">Available Commands</h3>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="bg-slate-800/80 p-4 rounded-lg border border-indigo-500/30">
-                      <h4 className="font-semibold text-indigo-300 mb-2">install</h4>
-                      <p className="text-sm text-slate-300">Install packages interactively</p>
-                      <CodeBlock code="npx package-installer-cli install" language="bash" />
+                      <h4 className="font-semibold text-indigo-300 mb-2">Basic Scaffolding</h4>
+                      <p className="text-sm text-slate-300">Create a new project interactively</p>
+                      <CodeBlock code="pi" language="bash" />
                     </div>
                     <div className="bg-slate-800/80 p-4 rounded-lg border border-indigo-500/30">
-                      <h4 className="font-semibold text-indigo-300 mb-2">list</h4>
-                      <p className="text-sm text-slate-300">List available packages</p>
-                      <CodeBlock code="npx package-installer-cli list" language="bash" />
+                      <h4 className="font-semibold text-indigo-300 mb-2">Named Project</h4>
+                      <p className="text-sm text-slate-300">Create project with specific name</p>
+                      <CodeBlock code="pi my-awesome-app" language="bash" />
                     </div>
                     <div className="bg-slate-800/80 p-4 rounded-lg border border-indigo-500/30">
-                      <h4 className="font-semibold text-indigo-300 mb-2">search</h4>
-                      <p className="text-sm text-slate-300">Search for packages</p>
-                      <CodeBlock code="npx package-installer-cli search react" language="bash" />
+                      <h4 className="font-semibold text-indigo-300 mb-2">Current Directory</h4>
+                      <p className="text-sm text-slate-300">Use current directory name</p>
+                      <CodeBlock code="pi ." language="bash" />
                     </div>
                     <div className="bg-slate-800/80 p-4 rounded-lg border border-indigo-500/30">
-                      <h4 className="font-semibold text-indigo-300 mb-2">help</h4>
-                      <p className="text-sm text-slate-300">Show help information</p>
-                      <CodeBlock code="npx package-installer-cli --help" language="bash" />
+                      <h4 className="font-semibold text-indigo-300 mb-2">Full Command</h4>
+                      <p className="text-sm text-slate-300">Use full command name</p>
+                      <CodeBlock code="package-installer my-react-app" language="bash" />
                     </div>
                   </div>
                 </div>
               </div>
             </DocsSection>
 
-            {/* Features */}
-            <DocsSection title="Features" id="features">
+            {/* Supported Frameworks */}
+            <DocsSection title="Supported Frameworks" id="frameworks">
               <p className="text-lg text-slate-300 leading-relaxed mb-6">
-                Discover the powerful features that make package-installer-cli the perfect tool for 
-                managing your npm dependencies.
+                Package Installer CLI supports a wide range of frameworks and technologies for building modern web applications.
               </p>
 
               <div className="grid md:grid-cols-2 gap-6">
-                {features.map((feature, idx) => (
+                {frameworks.map((framework) => (
                   <div
-                    key={feature.title}
+                    key={framework.name}
                     className="bg-slate-800/80 p-6 rounded-xl border border-indigo-500/30 hover:border-indigo-400/50 transition-all duration-300"
-                    style={{ animationDelay: `${idx * 100}ms` }}
                   >
-                    <div className="flex items-center gap-3 mb-3">
-                      <span className="text-2xl">{feature.icon}</span>
-                      <h3 className="font-bold text-lg text-indigo-300">{feature.title}</h3>
+                    <div className="flex items-center justify-between mb-3">
+                      <h3 className="font-bold text-lg text-indigo-300">{framework.name}</h3>
+                      <span className={`px-2 py-1 rounded-full text-xs font-semibold ${
+                        framework.type === 'Frontend' ? 'bg-blue-500/20 text-blue-300' : 'bg-green-500/20 text-green-300'
+                      }`}>
+                        {framework.type}
+                      </span>
                     </div>
-                    <p className="text-slate-300 leading-relaxed">{feature.description}</p>
+                    <p className="text-slate-300 leading-relaxed">{framework.description}</p>
                   </div>
                 ))}
               </div>
+
+              <InfoCard type="info" title="Framework Types">
+                <p className="mb-3">
+                  Frameworks are categorized by their primary use case:
+                </p>
+                <ul className="list-disc list-inside space-y-1">
+                  <li><strong>Frontend:</strong> User interface frameworks and libraries</li>
+                  <li><strong>Backend:</strong> Server-side frameworks and APIs</li>
+                  <li><strong>Fullstack:</strong> Complete application frameworks</li>
+                </ul>
+              </InfoCard>
             </DocsSection>
 
-            {/* Configuration */}
-            <DocsSection title="Configuration" id="configuration">
+            {/* Templates */}
+            <DocsSection title="Templates" id="templates">
               <p className="text-lg text-slate-300 leading-relaxed mb-6">
-                Customize the CLI behavior with configuration options and environment variables.
+                Each framework comes with multiple template options to suit different project requirements.
               </p>
 
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-lg font-semibold mb-3 text-indigo-300">Configuration File</h3>
-                  <p className="text-slate-300 mb-4">
-                    Create a <code className="text-green-300">.package-installer.json</code> file in your project root:
-                  </p>
-                  <CodeBlock 
-                    code={`{
-  "defaultPackages": ["react", "react-dom"],
-  "packageManager": "npm",
-  "saveDev": false,
-  "interactive": true
-}`}
-                    language="json"
-                    title="Configuration example"
-                  />
-                </div>
-
-                <div>
-                  <h3 className="text-lg font-semibold mb-3 text-indigo-300">Environment Variables</h3>
-                  <div className="space-y-3">
+                  <h3 className="text-lg font-semibold mb-3 text-indigo-300">Template Types</h3>
+                  <div className="grid md:grid-cols-2 gap-4">
                     <div className="bg-slate-800/80 p-4 rounded-lg border border-indigo-500/30">
-                      <h4 className="font-semibold text-indigo-300 mb-2">PACKAGE_MANAGER</h4>
-                      <p className="text-sm text-slate-300 mb-2">Set the default package manager (npm, yarn, pnpm)</p>
-                      <CodeBlock code="export PACKAGE_MANAGER=yarn" language="bash" />
+                      <h4 className="font-semibold text-indigo-300 mb-2">Basic Templates</h4>
+                      <p className="text-sm text-slate-300">Simple, clean structure for getting started</p>
                     </div>
                     <div className="bg-slate-800/80 p-4 rounded-lg border border-indigo-500/30">
-                      <h4 className="font-semibold text-indigo-300 mb-2">SAVE_DEV</h4>
-                      <p className="text-sm text-slate-300 mb-2">Default to save as dev dependency</p>
-                      <CodeBlock code="export SAVE_DEV=true" language="bash" />
+                      <h4 className="font-semibold text-indigo-300 mb-2">Advanced Templates</h4>
+                      <p className="text-sm text-slate-300">Full-featured, production-ready setups</p>
+                    </div>
+                    <div className="bg-slate-800/80 p-4 rounded-lg border border-indigo-500/30">
+                      <h4 className="font-semibold text-indigo-300 mb-2">Combination Templates</h4>
+                      <p className="text-sm text-slate-300">Pre-configured full-stack setups</p>
+                    </div>
+                    <div className="bg-slate-800/80 p-4 rounded-lg border border-indigo-500/30">
+                      <h4 className="font-semibold text-indigo-300 mb-2">UI Library Integration</h4>
+                      <p className="text-sm text-slate-300">Templates with Shadcn/ui, Material-UI</p>
                     </div>
                   </div>
                 </div>
-              </div>
-            </DocsSection>
-
-            {/* API Reference */}
-            <DocsSection title="API Reference" id="api-reference">
-              <p className="text-lg text-slate-300 leading-relaxed mb-6">
-                Programmatic API for integrating package-installer-cli into your own tools and scripts.
-              </p>
-
-              <div className="space-y-6">
-                <div>
-                  <h3 className="text-lg font-semibold mb-3 text-indigo-300">Install Function</h3>
-                  <CodeBlock 
-                    code={`import { install } from 'package-installer-cli';
-
-const packages = await install(['react', 'react-dom'], {
-  saveDev: false,
-  packageManager: 'npm'
-});`}
-                    language="javascript"
-                    title="Install packages programmatically"
-                  />
-                </div>
 
                 <div>
-                  <h3 className="text-lg font-semibold mb-3 text-indigo-300">Search Function</h3>
+                  <h3 className="text-lg font-semibold mb-3 text-indigo-300">Example: React + Express + Shadcn</h3>
                   <CodeBlock 
-                    code={`import { search } from 'package-installer-cli';
+                    code={`📋 Choose your template:
+❯ react-basic-express-shadcn-template (Pre-configured setup)
+  react-advance-express-shadcn-template (Pre-configured setup)
 
-const results = await search('react', {
-  limit: 10,
-  includeDev: true
-});`}
-                    language="javascript"
-                    title="Search for packages"
+📋 Template includes:
+  ✅ Shadcn/ui components
+  ✅ Express.js backend
+  ✅ React.js frontend
+  💡 All configurations are pre-configured for optimal setup!`}
+                    language="bash"
+                    title="Combination template selection"
                   />
                 </div>
-
-                <InfoCard type="warning" title="Note">
-                  <p>
-                    The programmatic API is available when installing the package locally in your project. 
-                    Make sure to handle errors appropriately in production code.
-                  </p>
-                </InfoCard>
               </div>
             </DocsSection>
 
@@ -293,96 +289,150 @@ const results = await search('react', {
 
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-lg font-semibold mb-3 text-indigo-300">React Project Setup</h3>
+                  <h3 className="text-lg font-semibold mb-3 text-indigo-300">Next.js Project</h3>
                   <CodeBlock 
-                    code={`# Install React and common dependencies
-npx package-installer-cli install react react-dom react-router-dom
+                    code={`# Create a Next.js project
+pi my-next-app
 
-# Install development dependencies
-npx package-installer-cli install --save-dev @types/react @types/react-dom`}
+# Choose framework: Next.js
+# Choose language: TypeScript
+# Choose template: Basic with Shadcn/ui
+# Choose styling: Tailwind CSS`}
                     language="bash"
-                    title="Setting up a React project"
+                    title="Creating a Next.js project"
                   />
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-semibold mb-3 text-indigo-300">Node.js Backend</h3>
+                  <h3 className="text-lg font-semibold mb-3 text-indigo-300">Full-Stack Application</h3>
                   <CodeBlock 
-                    code={`# Install Express and related packages
-npx package-installer-cli install express cors helmet morgan
+                    code={`# Create a full-stack app
+pi my-fullstack-app
 
-# Install development tools
-npx package-installer-cli install --save-dev nodemon jest supertest`}
+# Choose combination template
+# React + Express + Shadcn/ui
+# TypeScript throughout
+# Auto dependency installation`}
                     language="bash"
-                    title="Setting up a Node.js backend"
+                    title="Creating a full-stack application"
                   />
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-semibold mb-3 text-indigo-300">TypeScript Project</h3>
+                  <h3 className="text-lg font-semibold mb-3 text-indigo-300">Rust Backend</h3>
                   <CodeBlock 
-                    code={`# Install TypeScript and type definitions
-npx package-installer-cli install typescript @types/node
+                    code={`# Create a Rust project
+pi my-rust-service
 
-# Install additional type packages
-npx package-installer-cli install @types/express @types/cors`}
+# Choose framework: Rust
+# Choose template: Advanced
+# Cargo commands will be shown`}
                     language="bash"
-                    title="Setting up TypeScript"
+                    title="Creating a Rust backend"
                   />
                 </div>
               </div>
             </DocsSection>
 
-            {/* Troubleshooting */}
-            <DocsSection title="Troubleshooting" id="troubleshooting">
+            {/* Development */}
+            <DocsSection title="Development" id="development">
               <p className="text-lg text-slate-300 leading-relaxed mb-6">
-                Common issues and their solutions to help you resolve problems quickly.
+                Information for developers who want to contribute to Package Installer CLI.
               </p>
 
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-lg font-semibold mb-3 text-indigo-300">Permission Errors</h3>
-                  <InfoCard type="warning" title="Global Installation Issues">
-                    <p className="mb-3">
-                      If you encounter permission errors when installing globally, try:
-                    </p>
-                    <CodeBlock 
-                      code="sudo npm install -g package-installer-cli"
-                      language="bash"
-                      title="Install with sudo (Linux/macOS)"
-                    />
-                    <p className="text-sm text-slate-400 mt-2">
-                      Or use npx instead: <code className="text-green-300">npx package-installer-cli</code>
-                    </p>
-                  </InfoCard>
+                  <h3 className="text-lg font-semibold mb-3 text-indigo-300">Local Development</h3>
+                  <CodeBlock 
+                    code={`# Clone the repository
+git clone https://github.com/0xshariq/package-installer-cli.git
+cd package-installer-cli
+
+# Install dependencies
+npm install
+
+# Build the project
+npm run build
+
+# Run locally
+node dist/index.js`}
+                    language="bash"
+                    title="Setting up development environment"
+                  />
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-semibold mb-3 text-indigo-300">Network Issues</h3>
-                  <InfoCard type="info" title="Slow Downloads">
-                    <p className="mb-3">
-                      If downloads are slow, try switching to a different npm registry:
-                    </p>
-                    <CodeBlock 
-                      code="npm config set registry https://registry.npmjs.org/"
-                      language="bash"
-                      title="Set npm registry"
-                    />
-                  </InfoCard>
+                  <h3 className="text-lg font-semibold mb-3 text-indigo-300">Project Structure</h3>
+                  <CodeBlock 
+                    code={`package-installer-cli/
+├── src/
+│   └── index.ts          # Main CLI logic with enhanced styling
+├── templates/            # Template directories
+│   ├── nextjs/
+│   ├── reactjs/
+│   ├── vuejs/
+│   ├── angularjs/
+│   ├── expressjs/
+│   ├── remixjs/
+│   ├── nestjs/
+│   ├── rust/
+│   └── reactjs-expressjs-shadcn/
+├── template.json         # Framework configurations
+├── dist/                 # Compiled JavaScript
+└── package.json`}
+                    language="bash"
+                    title="Project structure"
+                  />
+                </div>
+              </div>
+            </DocsSection>
+
+            {/* Contributing */}
+            <DocsSection title="Contributing" id="contributing">
+              <p className="text-lg text-slate-300 leading-relaxed mb-6">
+                We welcome contributions! Here's how to get started with contributing to Package Installer CLI.
+              </p>
+
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-lg font-semibold mb-3 text-indigo-300">Getting Started</h3>
+                  <CodeBlock 
+                    code={`# Fork the repository
+# Create your feature branch
+git checkout -b feature/amazing-feature
+
+# Commit your changes
+git commit -m 'Add amazing feature'
+
+# Push to the branch
+git push origin feature/amazing-feature
+
+# Open a Pull Request`}
+                    language="bash"
+                    title="Contribution workflow"
+                  />
                 </div>
 
+                <InfoCard type="info" title="Development Guidelines">
+                  <ul className="list-disc list-inside space-y-2">
+                    <li>Follow TypeScript best practices</li>
+                    <li>Add proper error handling</li>
+                    <li>Include emoji and styling for new features</li>
+                    <li>Update documentation for new frameworks</li>
+                    <li>Test on multiple platforms</li>
+                    <li>Add comprehensive comments to code</li>
+                  </ul>
+                </InfoCard>
+
                 <div>
-                  <h3 className="text-lg font-semibold mb-3 text-indigo-300">Version Conflicts</h3>
-                  <InfoCard type="warning" title="Package Version Issues">
-                    <p>
-                      If you encounter version conflicts, try clearing npm cache and reinstalling:
-                    </p>
-                    <CodeBlock 
-                      code="npm cache clean --force && npm install"
-                      language="bash"
-                      title="Clear cache and reinstall"
-                    />
-                  </InfoCard>
+                  <h3 className="text-lg font-semibold mb-3 text-indigo-300">Adding New Frameworks</h3>
+                  <ol className="list-decimal list-inside space-y-2 text-slate-300">
+                    <li>Update <code className="text-green-300">template.json</code> with framework configuration</li>
+                    <li>Create template directory in <code className="text-green-300">templates/</code></li>
+                    <li>Add framework theme in <code className="text-green-300">getFrameworkTheme()</code></li>
+                    <li>Update documentation in README.md</li>
+                    <li>Test thoroughly on different platforms</li>
+                  </ol>
                 </div>
               </div>
             </DocsSection>

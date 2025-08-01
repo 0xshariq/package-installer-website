@@ -15,7 +15,7 @@ function FeatureCard({
   gradient = "from-indigo-500 to-purple-500",
 }: FeatureCardProps) {
   return (
-    <HoverScale>
+    <HoverScale children={undefined}>
       <Card className="w-full h-full bg-slate-800/80 border-indigo-500/30 hover:border-indigo-400/50 transition-all duration-300">
         <CardHeader>
           {icon && (

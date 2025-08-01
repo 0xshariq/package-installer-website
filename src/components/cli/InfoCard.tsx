@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { ReactNode } from "react";
 
 interface InfoCardProps {
@@ -37,11 +36,7 @@ export function InfoCard({ type = "info", title, children }: InfoCardProps) {
   const styles = getStyles();
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      className={`p-4 rounded-lg border ${styles.bg} ${styles.border}`}
-    >
+    <div className={`p-4 rounded-lg border ${styles.bg} ${styles.border} animate-fade-in`}>
       <div className="flex items-start gap-3">
         <span className="text-lg">{styles.icon}</span>
         <div className="flex-1">
@@ -51,6 +46,6 @@ export function InfoCard({ type = "info", title, children }: InfoCardProps) {
           <div className="text-slate-300">{children}</div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 } 

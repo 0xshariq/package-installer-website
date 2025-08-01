@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+"use client"
 import { useState } from "react";
 
 interface CodeBlockProps {
@@ -21,11 +21,7 @@ export function CodeBlock({ code, language = "bash", title }: CodeBlockProps) {
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      className="relative group"
-    >
+    <div className="relative group animate-fade-in">
       {title && (
         <div className="text-sm text-indigo-300 mb-2 font-medium">{title}</div>
       )}
@@ -43,6 +39,6 @@ export function CodeBlock({ code, language = "bash", title }: CodeBlockProps) {
           <code className="text-green-300 font-mono text-sm">{code}</code>
         </pre>
       </div>
-    </motion.div>
+    </div>
   );
 } 

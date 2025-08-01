@@ -2,25 +2,25 @@ import { StaggeredFadeIn } from "../animation/StaggeredFadeIn";
 
 const steps = [
 	{
-		title: "Install CLI",
-		description: "Run 'npx package-installer-cli' in your terminal to get started.",
-		code: "npx package-installer-cli",
-		icon: "📦",
+		title: "Run CLI",
+		description: "Use 'pi' or 'package-installer' command to start the interactive scaffolder.",
+		code: "pi",
+		icon: "💻",
 	},
 	{
-		title: "Choose Packages",
-		description: "Select and install npm packages interactively from a curated list.",
-		icon: "🎯",
+		title: "Choose Framework",
+		description: "Select from 10+ frameworks: Next.js, React, Vue, Angular, Express, Rust, Remix, NestJS.",
+		icon: "🚀",
 	},
 	{
 		title: "Configure Project",
-		description: "Set up your project with the selected dependencies automatically.",
+		description: "Set language (JS/TS), UI libraries (Shadcn/ui, Material-UI), and project settings.",
 		icon: "⚙️",
 	},
 	{
-		title: "Enjoy!",
-		description: "Your project is ready with all dependencies installed and configured.",
-		icon: "🚀",
+		title: "Start Building",
+		description: "Your production-ready project is created with all dependencies and configurations set up.",
+		icon: "🎉",
 	},
 ];
 
@@ -49,7 +49,7 @@ function UsageSteps() {
 			));
 
 	return (
-		<div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
+		<div className="space-y-6 mt-8">
 			<StaggeredFadeIn staggerDelay={100}>
 				{stepElements}
 			</StaggeredFadeIn>
