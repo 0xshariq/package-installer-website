@@ -39,12 +39,14 @@ export function InfoCard({ type = "info", title, children }: InfoCardProps) {
   const styles = getStyles();
   return (
     <FadeIn>
-      <div className={`rounded-xl p-4 border ${styles.bg} ${styles.border} flex items-start gap-4 shadow-md`}>
-        <span className={`text-2xl ${styles.text} ${styles.iconAnim}`}>{styles.icon}</span>
-        <div>
-          {title && <h4 className={`font-semibold mb-2 ${styles.text}`}>{title}</h4>}
-          <div className="text-slate-300">{children}</div>
+      <div className={`flex flex-col items-center justify-center rounded-xl shadow-lg border ${styles.bg} ${styles.border} p-6`}>
+        <div className={`flex items-center justify-center w-14 h-14 rounded-full mb-3 ${styles.bg} shadow`}>
+          <span className={`text-3xl ${styles.text} ${styles.iconAnim}`}>{styles.icon}</span>
         </div>
+        {title && (
+          <h4 className={`font-bold text-lg mb-2 text-center ${styles.text}`}>{title}</h4>
+        )}
+        <div className="text-slate-300 text-base leading-relaxed text-center">{children}</div>
       </div>
     </FadeIn>
   );

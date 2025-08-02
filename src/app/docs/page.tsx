@@ -480,11 +480,56 @@ git push origin feature/amazing-feature
             <AnimatedSection>
               <FadeIn>
                 <div className="mt-8">
-                  <h2 className="text-xl font-semibold mb-2">Links</h2>
-                  <ul className="list-disc ml-6">
-                    <li><a href="https://github.com/0xshariq/package-installer-cli" target="_blank" rel="noopener" className="text-indigo-300 underline">GitHub Repository</a></li>
-                    <li><a href="https://www.npmjs.com/package/package-installer-cli" target="_blank" rel="noopener" className="text-indigo-300 underline">NPM Package</a></li>
-                    <li><a href="https://portfolio-sigma-rose-22.vercel.app/blog/package-installer-cli" target="_blank" rel="noopener" className="text-indigo-300 underline">Blog</a></li>
+                  <h2 className="text-xl font-semibold mb-6 text-indigo-300 flex items-center gap-2">
+                    <svg width="24" height="24" fill="none" viewBox="0 0 24 24" className="text-indigo-400"><path stroke="currentColor" strokeWidth="2" d="M7.5 12a4.5 4.5 0 0 1 4.5-4.5h3A4.5 4.5 0 0 1 19.5 12a4.5 4.5 0 0 1-4.5 4.5h-3A4.5 4.5 0 0 1 7.5 12Z"/><path stroke="currentColor" strokeWidth="2" d="M8.5 12a3.5 3.5 0 0 1 3.5-3.5h3A3.5 3.5 0 0 1 18.5 12a3.5 3.5 0 0 1-3.5 3.5h-3A3.5 3.5 0 0 1 8.5 12Z"/></svg>
+                    Links
+                  </h2>
+                  <ul className="grid md:grid-cols-3 gap-6">
+                    <li>
+                      <a
+                        href="https://github.com/0xshariq/package-installer-cli"
+                        target="_blank"
+                        rel="noopener"
+                        className="group block bg-slate-800/80 rounded-xl border border-indigo-500/30 p-4 shadow hover:shadow-indigo-700/30 transition-all focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                        aria-label="GitHub Repository"
+                      >
+                        <div className="flex items-center gap-3 mb-2">
+                          <svg width="24" height="24" fill="none" viewBox="0 0 24 24" className="text-indigo-400 group-hover:scale-110 transition-transform"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.167 6.839 9.489.5.092.682-.217.682-.483 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.34-3.369-1.34-.454-1.154-1.11-1.461-1.11-1.461-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.529 2.341 1.088 2.91.833.091-.646.35-1.088.636-1.34-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.272.098-2.65 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.338 1.909-1.294 2.748-1.025 2.748-1.025.546 1.378.202 2.397.1 2.65.64.699 1.028 1.592 1.028 2.683 0 3.842-2.337 4.687-4.566 4.936.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.749 0 .268.18.579.688.481C19.137 20.164 22 16.418 22 12c0-5.523-4.477-10-10-10Z" fill="currentColor"/></svg>
+                          <span className="font-semibold text-indigo-300 group-hover:text-pink-400 transition-colors">GitHub Repository</span>
+                        </div>
+                        <span className="block text-xs text-slate-400">Source code & issues</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://www.npmjs.com/package/package-installer-cli"
+                        target="_blank"
+                        rel="noopener"
+                        className="group block bg-slate-800/80 rounded-xl border border-indigo-500/30 p-4 shadow hover:shadow-indigo-700/30 transition-all focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                        aria-label="NPM Package"
+                      >
+                        <div className="flex items-center gap-3 mb-2">
+                          <svg width="24" height="24" fill="none" viewBox="0 0 24 24" className="text-indigo-400 group-hover:scale-110 transition-transform"><rect x="3" y="7" width="18" height="10" rx="2" fill="currentColor"/><rect x="7" y="3" width="10" height="4" rx="1" fill="currentColor"/></svg>
+                          <span className="font-semibold text-indigo-300 group-hover:text-pink-400 transition-colors">NPM Package</span>
+                        </div>
+                        <span className="block text-xs text-slate-400">Install & usage info</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://portfolio-sigma-rose-22.vercel.app/blog/package-installer-cli"
+                        target="_blank"
+                        rel="noopener"
+                        className="group block bg-slate-800/80 rounded-xl border border-indigo-500/30 p-4 shadow hover:shadow-indigo-700/30 transition-all focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                        aria-label="Blog"
+                      >
+                        <div className="flex items-center gap-3 mb-2">
+                          <svg width="24" height="24" fill="none" viewBox="0 0 24 24" className="text-indigo-400 group-hover:scale-110 transition-transform"><rect x="4" y="4" width="16" height="16" rx="2" fill="currentColor"/><rect x="7" y="7" width="10" height="2" rx="1" fill="#fff"/><rect x="7" y="11" width="10" height="2" rx="1" fill="#fff"/><rect x="7" y="15" width="7" height="2" rx="1" fill="#fff"/></svg>
+                          <span className="font-semibold text-indigo-300 group-hover:text-pink-400 transition-colors">Blog</span>
+                        </div>
+                        <span className="block text-xs text-slate-400">Tutorials & updates</span>
+                      </a>
+                    </li>
                   </ul>
                 </div>
               </FadeIn>
