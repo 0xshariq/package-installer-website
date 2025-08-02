@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import React from "react";
 
-export function FadeIn({ children, delay = 0, duration = 0.7, y = 30 }: { children: React.ReactNode; delay?: number; duration?: number; y?: number }) {
+export function SlideUp({ children, delay = 0, duration = 0.7, y = 40 }: { children: React.ReactNode; delay?: number; duration?: number; y?: number }) {
   return (
     <motion.div
       initial={{ opacity: 0, y }}

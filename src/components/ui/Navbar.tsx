@@ -43,6 +43,14 @@ export function Navbar() {
             >
               NPM
             </a>
+            <a 
+              href="https://portfolio-sigma-rose-22.vercel.app/blog/package-installer-cli" 
+              target="_blank"
+              rel="noopener"
+              className="text-slate-300 hover:text-indigo-300 transition-colors duration-200"
+            >
+              Blog
+            </a>
           </div>
 
           {/* CTA Button */}
@@ -67,4 +75,4 @@ export function Navbar() {
       </div>
     </nav>
   );
-} 
+}

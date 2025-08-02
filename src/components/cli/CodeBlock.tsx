@@ -30,7 +30,8 @@ export function CodeBlock({ code, language = "bash", title }: CodeBlockProps) {
           <span className="text-xs text-indigo-400 font-mono">{language}</span>
           <button
             onClick={copyToClipboard}
-            className="text-xs text-indigo-400 hover:text-indigo-300 transition-colors"
+            className={`text-xs text-indigo-400 hover:text-indigo-300 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-400 px-2 py-1 rounded ${copied ? 'animate-pulse bg-indigo-700/30 text-green-300' : ''}`}
+            aria-label={copied ? "Code copied" : "Copy code"}
           >
             {copied ? "Copied!" : "Copy"}
           </button>
@@ -41,4 +42,4 @@ export function CodeBlock({ code, language = "bash", title }: CodeBlockProps) {
       </div>
     </div>
   );
-} 
+}

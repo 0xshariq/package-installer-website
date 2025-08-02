@@ -1,4 +1,6 @@
 import { AnimatedSection } from "@/components/cli/AnimatedSection";
+import { FadeIn } from "@/components/animation/FadeIn";
+import { SlideUp } from "@/components/animation/SlideUp";
 import { CodeBlock } from "@/components/cli/CodeBlock";
 import { DocsSection } from "@/components/cli/DocsSection";
 import { DocsNavigation } from "@/components/cli/DocsNavigation";
@@ -67,21 +69,34 @@ const frameworks = [
   },
 ];
 
+const steps = [
+  {
+    title: "Install CLI",
+    description: "Run 'npx package-installer-cli' in your terminal.",
+    code: "npx package-installer-cli",
+  },
+  {
+    title: "Choose Packages",
+    description: "Select and install npm packages interactively.",
+  },
+  {
+    title: "Enjoy!",
+    description: "Your project is ready with all dependencies installed.",
+  },
+];
+
 export default function DocsPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-900 via-indigo-900 to-slate-800 text-white">
+    <main className="min-h-screen bg-gradient-to-br from-slate-900 via-indigo-900 to-slate-800 text-white px-4 py-8 md:py-16">
       {/* Header */}
       <AnimatedSection>
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12">
-          <div className="text-center mb-12">
-            <h1 className="text-5xl font-extrabold mb-4 bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+        <FadeIn>
+          <section className="text-center mb-10 px-2 md:px-0">
+            <h1 className="text-3xl md:text-4xl font-extrabold mb-4 bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
               Documentation
             </h1>
-            <p className="text-xl opacity-90 max-w-2xl mx-auto">
-              Complete guide to using Package Installer CLI for scaffolding web applications
-            </p>
-          </div>
-        </div>
+          </section>
+        </FadeIn>
       </AnimatedSection>
 
       {/* Main Content */}
@@ -97,11 +112,11 @@ export default function DocsPage() {
             {/* Overview */}
             <DocsSection title="Overview" id="overview">
               <p className="text-lg text-slate-300 leading-relaxed">
-                Package Installer CLI (pi) is a modern, cross-platform CLI tool designed to scaffold web applications 
-                with beautiful styling, interactive prompts, and comprehensive framework support. Create production-ready 
+                Package Installer CLI (pi) is a modern, cross-platform CLI tool designed to scaffold web applications
+                with beautiful styling, interactive prompts, and comprehensive framework support. Create production-ready
                 projects in seconds with the ultimate developer experience.
               </p>
-              
+
               <InfoCard type="info" title="Key Features">
                 <ul className="list-disc list-inside space-y-2">
                   <li><strong>10+ Frameworks:</strong> Next.js, React, Vue, Angular, Express, Rust, Remix, NestJS</li>
@@ -123,7 +138,7 @@ export default function DocsPage() {
               <div className="space-y-6">
                 <div>
                   <h3 className="text-lg font-semibold mb-3 text-indigo-300">Using npx (Recommended)</h3>
-                  <CodeBlock 
+                  <CodeBlock
                     code="npx package-installer-cli"
                     language="bash"
                     title="Run directly with npx"
@@ -132,7 +147,7 @@ export default function DocsPage() {
 
                 <div>
                   <h3 className="text-lg font-semibold mb-3 text-indigo-300">Global Installation</h3>
-                  <CodeBlock 
+                  <CodeBlock
                     code="npm install -g package-installer-cli"
                     language="bash"
                     title="Install globally"
@@ -161,7 +176,7 @@ export default function DocsPage() {
               <div className="space-y-6">
                 <div>
                   <h3 className="text-lg font-semibold mb-3 text-indigo-300">Basic Usage</h3>
-                  <CodeBlock 
+                  <CodeBlock
                     code="pi"
                     language="bash"
                     title="Start the interactive scaffolder"
@@ -264,7 +279,7 @@ export default function DocsPage() {
 
                 <div>
                   <h3 className="text-lg font-semibold mb-3 text-indigo-300">Example: React + Express + Shadcn</h3>
-                  <CodeBlock 
+                  <CodeBlock
                     code={`📋 Choose your template:
 ❯ react-basic-express-shadcn-template (Pre-configured setup)
   react-advance-express-shadcn-template (Pre-configured setup)
@@ -290,7 +305,7 @@ export default function DocsPage() {
               <div className="space-y-6">
                 <div>
                   <h3 className="text-lg font-semibold mb-3 text-indigo-300">Next.js Project</h3>
-                  <CodeBlock 
+                  <CodeBlock
                     code={`# Create a Next.js project
 pi my-next-app
 
@@ -305,7 +320,7 @@ pi my-next-app
 
                 <div>
                   <h3 className="text-lg font-semibold mb-3 text-indigo-300">Full-Stack Application</h3>
-                  <CodeBlock 
+                  <CodeBlock
                     code={`# Create a full-stack app
 pi my-fullstack-app
 
@@ -320,7 +335,7 @@ pi my-fullstack-app
 
                 <div>
                   <h3 className="text-lg font-semibold mb-3 text-indigo-300">Rust Backend</h3>
-                  <CodeBlock 
+                  <CodeBlock
                     code={`# Create a Rust project
 pi my-rust-service
 
@@ -343,7 +358,7 @@ pi my-rust-service
               <div className="space-y-6">
                 <div>
                   <h3 className="text-lg font-semibold mb-3 text-indigo-300">Local Development</h3>
-                  <CodeBlock 
+                  <CodeBlock
                     code={`# Clone the repository
 git clone https://github.com/0xshariq/package-installer-cli.git
 cd package-installer-cli
@@ -363,7 +378,7 @@ node dist/index.js`}
 
                 <div>
                   <h3 className="text-lg font-semibold mb-3 text-indigo-300">Project Structure</h3>
-                  <CodeBlock 
+                  <CodeBlock
                     code={`package-installer-cli/
 ├── src/
 │   └── index.ts          # Main CLI logic with enhanced styling
@@ -396,7 +411,7 @@ node dist/index.js`}
               <div className="space-y-6">
                 <div>
                   <h3 className="text-lg font-semibold mb-3 text-indigo-300">Getting Started</h3>
-                  <CodeBlock 
+                  <CodeBlock
                     code={`# Fork the repository
 # Create your feature branch
 git checkout -b feature/amazing-feature
@@ -437,62 +452,43 @@ git push origin feature/amazing-feature
               </div>
             </DocsSection>
 
+            {/* Steps Overview */}
+            <AnimatedSection>
+              <FadeIn>
+                <div className="text-center mb-10 px-2 md:px-0">
+                  <h2 className="text-2xl md:text-3xl font-extrabold mb-4 text-indigo-300">
+                    Quick Start Steps
+                  </h2>
+                </div>
+              </FadeIn>
+              <SlideUp>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+                  {steps.map((step, idx) => (
+                    <FadeIn key={step.title} delay={idx * 0.15}>
+                      <div className="bg-slate-800/80 p-6 rounded-xl shadow-lg border border-indigo-500/30">
+                        <h3 className="font-bold text-lg mb-2 text-indigo-300">{step.title}</h3>
+                        <p className="mb-2 opacity-90">{step.description}</p>
+                        {step.code && <pre className="bg-black/40 p-2 rounded text-green-300 text-sm"><code>{step.code}</code></pre>}
+                      </div>
+                    </FadeIn>
+                  ))}
+                </div>
+              </SlideUp>
+            </AnimatedSection>
+
             {/* Links */}
-            <div className="bg-slate-800/80 p-8 rounded-xl border border-indigo-500/30">
-              <h2 className="text-2xl font-bold mb-6 text-indigo-300">Additional Resources</h2>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <h3 className="text-lg font-semibold mb-3 text-indigo-300">Official Links</h3>
-                  <ul className="space-y-2">
-                    <li>
-                      <a
-                        href="https://github.com/0xshariq/package-installer-cli"
-                        target="_blank"
-                        rel="noopener"
-                        className="text-indigo-300 hover:text-indigo-200 underline flex items-center gap-2"
-                      >
-                        📖 GitHub Repository
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="https://www.npmjs.com/package/package-installer-cli"
-                        target="_blank"
-                        rel="noopener"
-                        className="text-indigo-300 hover:text-indigo-200 underline flex items-center gap-2"
-                      >
-                        📦 NPM Package
-                      </a>
-                    </li>
+            <AnimatedSection>
+              <FadeIn>
+                <div className="mt-8">
+                  <h2 className="text-xl font-semibold mb-2">Links</h2>
+                  <ul className="list-disc ml-6">
+                    <li><a href="https://github.com/0xshariq/package-installer-cli" target="_blank" rel="noopener" className="text-indigo-300 underline">GitHub Repository</a></li>
+                    <li><a href="https://www.npmjs.com/package/package-installer-cli" target="_blank" rel="noopener" className="text-indigo-300 underline">NPM Package</a></li>
+                    <li><a href="https://portfolio-sigma-rose-22.vercel.app/blog/package-installer-cli" target="_blank" rel="noopener" className="text-indigo-300 underline">Blog</a></li>
                   </ul>
                 </div>
-                <div>
-                  <h3 className="text-lg font-semibold mb-3 text-indigo-300">Support</h3>
-                  <ul className="space-y-2">
-                    <li>
-                      <a
-                        href="https://github.com/0xshariq/package-installer-cli/issues"
-                        target="_blank"
-                        rel="noopener"
-                        className="text-indigo-300 hover:text-indigo-200 underline flex items-center gap-2"
-                      >
-                        🐛 Report Issues
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="https://github.com/0xshariq/package-installer-cli/discussions"
-                        target="_blank"
-                        rel="noopener"
-                        className="text-indigo-300 hover:text-indigo-200 underline flex items-center gap-2"
-                      >
-                        💬 Community Discussions
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+              </FadeIn>
+            </AnimatedSection>
           </div>
         </div>
       </div>
