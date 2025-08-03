@@ -5,7 +5,6 @@ import { CodeBlock } from "@/components/cli/CodeBlock";
 import { DocsSection } from "@/components/cli/DocsSection";
 import { DocsNavigation } from "@/components/cli/DocsNavigation";
 import { InfoCard } from "@/components/cli/InfoCard";
-import Link from "next/link";
 
 const navigationItems = [
   { id: "overview", title: "Overview", href: "#overview" },
@@ -405,7 +404,7 @@ node dist/index.js`}
             {/* Contributing */}
             <DocsSection title="Contributing" id="contributing">
               <p className="text-lg text-slate-300 leading-relaxed mb-6">
-                We welcome contributions! Here's how to get started with contributing to Package Installer CLI.
+                We welcome contributions! Here&apos;s how to get started with contributing to Package Installer CLI.
               </p>
 
               <div className="space-y-6">

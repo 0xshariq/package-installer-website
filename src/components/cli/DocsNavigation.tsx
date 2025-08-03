@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 import { FadeIn } from "../animation/FadeIn";
 
 interface NavItem {
