@@ -1,5 +1,7 @@
 
 import { FadeIn } from "../animation/FadeIn";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 const steps = [
   {
@@ -27,22 +29,26 @@ const steps = [
 
 function UsageSteps() {
   return (
-	<div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+	<div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 mt-8">
 	  {steps.map((step, idx) => (
 		<FadeIn key={step.title} delay={idx * 0.15}>
-		  <div className="bg-slate-800/80 p-6 rounded-xl shadow-lg border border-indigo-500/30 hover:border-indigo-400/50 transition-all duration-300">
-			<div className="flex items-center gap-3 mb-3">
-			  <span className="text-3xl animate-bounce" aria-label={step.title}>{step.icon}</span>
-			  <span className="bg-indigo-500 text-white text-xs px-2 py-1 rounded-full font-bold">{idx + 1}</span>
-			  <h3 className="font-bold text-lg text-indigo-300">{step.title}</h3>
-			</div>
-			<p className="text-slate-300 mb-3 leading-relaxed">{step.description}</p>
-			{step.code && (
-			  <pre className="bg-slate-900/50 p-3 rounded-lg text-green-300 text-sm font-mono border border-indigo-500/20">
-				<code>{step.code}</code>
-			  </pre>
-			)}
-		  </div>
+		  <Card className="bg-slate-800/80 border-indigo-500/30 hover:border-indigo-400/50 transition-all duration-300 shadow-lg hover:shadow-indigo-700/30">
+			<CardHeader>
+			  <div className="flex items-center gap-2 sm:gap-3 mb-2">
+				<span className="text-2xl sm:text-3xl animate-bounce" aria-label={step.title}>{step.icon}</span>
+				<Badge variant="secondary" className="bg-indigo-500 text-white text-xs px-2 py-1 font-bold">{idx + 1}</Badge>
+			  </div>
+			  <CardTitle className="text-base sm:text-lg text-indigo-300">{step.title}</CardTitle>
+			</CardHeader>
+			<CardContent>
+			  <p className="text-slate-300 mb-3 leading-relaxed text-sm sm:text-base">{step.description}</p>
+			  {step.code && (
+				<pre className="bg-slate-900/50 p-2 sm:p-3 rounded-lg text-green-300 text-xs sm:text-sm font-mono border border-indigo-500/20">
+				  <code>{step.code}</code>
+				</pre>
+			  )}
+			</CardContent>
+		  </Card>
 		</FadeIn>
 	  ))}
 	</div>

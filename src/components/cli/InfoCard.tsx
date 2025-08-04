@@ -1,5 +1,7 @@
 import { ReactNode } from "react";
 import { FadeIn } from "../animation/FadeIn";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { Info, AlertTriangle, CheckCircle } from "lucide-react";
 
 interface InfoCardProps {
   type?: "info" | "warning" | "success";
@@ -8,46 +10,37 @@ interface InfoCardProps {
 }
 
 export function InfoCard({ type = "info", title, children }: InfoCardProps) {
-  const getStyles = () => {
+  const getIcon = () => {
     switch (type) {
       case "warning":
-        return {
-          bg: "bg-amber-500/10",
-          border: "border-amber-500/30",
-          text: "text-amber-300",
-          icon: "⚠️",
-          iconAnim: "animate-shake",
-        };
+        return <AlertTriangle className="h-4 w-4" />;
       case "success":
-        return {
-          bg: "bg-green-500/10",
-          border: "border-green-500/30",
-          text: "text-green-300",
-          icon: "✅",
-          iconAnim: "animate-pulse",
-        };
+        return <CheckCircle className="h-4 w-4" />;
       default:
-        return {
-          bg: "bg-blue-500/10",
-          border: "border-blue-500/30",
-          text: "text-blue-300",
-          icon: "ℹ️",
-          iconAnim: "animate-pulse",
-        };
+        return <Info className="h-4 w-4" />;
     }
   };
-  const styles = getStyles();
+
+  const getVariantClasses = () => {
+    switch (type) {
+      case "warning":
+        return "border-amber-500/30 bg-amber-500/10 text-amber-300 [&>svg]:text-amber-400";
+      case "success":
+        return "border-green-500/30 bg-green-500/10 text-green-300 [&>svg]:text-green-400";
+      default:
+        return "border-blue-500/30 bg-blue-500/10 text-blue-300 [&>svg]:text-blue-400";
+    }
+  };
+
   return (
     <FadeIn>
-      <div className={`flex flex-col items-center justify-center rounded-xl shadow-lg border ${styles.bg} ${styles.border} p-6`}>
-        <div className={`flex items-center justify-center w-14 h-14 rounded-full mb-3 ${styles.bg} shadow`}>
-          <span className={`text-3xl ${styles.text} ${styles.iconAnim}`}>{styles.icon}</span>
-        </div>
-        {title && (
-          <h4 className={`font-bold text-lg mb-2 text-center ${styles.text}`}>{title}</h4>
-        )}
-        <div className="text-slate-300 text-base leading-relaxed text-center">{children}</div>
-      </div>
+      <Alert className={`p-4 sm:p-6 max-w-full sm:max-w-2xl mx-auto ${getVariantClasses()}`}>
+        {getIcon()}
+        {title && <AlertTitle className="text-base sm:text-lg font-semibold mb-2">{title}</AlertTitle>}
+        <AlertDescription className="text-sm sm:text-base leading-relaxed">
+          {children}
+        </AlertDescription>
+      </Alert>
     </FadeIn>
   );
 }

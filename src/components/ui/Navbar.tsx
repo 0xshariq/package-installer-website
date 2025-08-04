@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 
 export function Navbar() {
   return (
@@ -7,69 +9,69 @@ export function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg flex items-center justify-center">
+            <Badge className="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg flex items-center justify-center p-0">
               <span className="text-white font-bold text-sm">CLI</span>
-            </div>
+            </Badge>
             <span className="text-white font-semibold text-lg">package-installer</span>
           </Link>
 
           {/* Navigation Links */}
-          <div className="hidden md:flex items-center space-x-8">
-            <Link 
-              href="/" 
-              className="text-slate-300 hover:text-indigo-300 transition-colors duration-200"
-            >
-              Home
-            </Link>
-            <Link 
-              href="/docs" 
-              className="text-slate-300 hover:text-indigo-300 transition-colors duration-200"
-            >
-              Documentation
-            </Link>
-            <a 
-              href="https://github.com/0xshariq/package-installer-cli" 
-              target="_blank"
-              rel="noopener"
-              className="text-slate-300 hover:text-indigo-300 transition-colors duration-200"
-            >
-              GitHub
-            </a>
-            <a 
-              href="https://www.npmjs.com/package/package-installer-cli" 
-              target="_blank"
-              rel="noopener"
-              className="text-slate-300 hover:text-indigo-300 transition-colors duration-200"
-            >
-              NPM
-            </a>
-            <a 
-              href="https://portfolio-sigma-rose-22.vercel.app/blog/package-installer-cli" 
-              target="_blank"
-              rel="noopener"
-              className="text-slate-300 hover:text-indigo-300 transition-colors duration-200"
-            >
-              Blog
-            </a>
+          <div className="hidden md:flex items-center space-x-4">
+            <Button variant="ghost" asChild className="text-slate-300 hover:text-indigo-300">
+              <Link href="/">
+                Home
+              </Link>
+            </Button>
+            <Button variant="ghost" asChild className="text-slate-300 hover:text-indigo-300">
+              <Link href="/docs">
+                Documentation
+              </Link>
+            </Button>
+            <Button variant="ghost" asChild className="text-slate-300 hover:text-indigo-300">
+              <a 
+                href="https://github.com/0xshariq/package-installer-cli" 
+                target="_blank"
+                rel="noopener"
+              >
+                GitHub
+              </a>
+            </Button>
+            <Button variant="ghost" asChild className="text-slate-300 hover:text-indigo-300">
+              <a 
+                href="https://www.npmjs.com/package/package-installer-cli" 
+                target="_blank"
+                rel="noopener"
+              >
+                NPM
+              </a>
+            </Button>
+            <Button variant="ghost" asChild className="text-slate-300 hover:text-indigo-300">
+              <a 
+                href="https://portfolio-sigma-rose-22.vercel.app/blog/package-installer-cli" 
+                target="_blank"
+                rel="noopener"
+              >
+                Blog
+              </a>
+            </Button>
           </div>
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Link 
-              href="/docs"
-              className="px-4 py-2 bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-semibold rounded-lg hover:from-indigo-600 hover:to-purple-600 transition-all duration-300"
-            >
-              Get Started
-            </Link>
+            <Button asChild className="bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600">
+              <Link href="/docs">
+                Get Started
+              </Link>
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
-            <button className="text-slate-300 hover:text-indigo-300 transition-colors duration-200">
+            <Button variant="ghost" size="icon" className="text-slate-300 hover:text-indigo-300">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               </svg>
-            </button>
+            </Button>
           </div>
         </div>
       </div>

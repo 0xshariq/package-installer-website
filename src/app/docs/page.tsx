@@ -99,15 +99,15 @@ export default function DocsPage() {
       </AnimatedSection>
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 pb-12">
-        <div className="grid lg:grid-cols-4 gap-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Navigation Sidebar */}
           <div className="lg:col-span-1">
             <DocsNavigation items={navigationItems} />
           </div>
 
           {/* Content */}
-          <div className="lg:col-span-3 space-y-12">
+          <div className="space-y-12 lg:col-span-3">
             {/* Overview */}
             <DocsSection title="Overview" id="overview">
               <p className="text-lg text-slate-300 leading-relaxed">
