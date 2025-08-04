@@ -5,7 +5,6 @@ import Link from "next/link";
 import { FadeIn } from "@/components/animation/FadeIn";
 import { SlideUp } from "@/components/animation/SlideUp";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 
 const features = [
 	{

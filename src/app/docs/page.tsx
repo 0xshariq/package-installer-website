@@ -5,6 +5,8 @@ import { CodeBlock } from "@/components/cli/CodeBlock";
 import { DocsSection } from "@/components/cli/DocsSection";
 import { DocsNavigation } from "@/components/cli/DocsNavigation";
 import { InfoCard } from "@/components/cli/InfoCard";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 const navigationItems = [
   { id: "overview", title: "Overview", href: "#overview" },
@@ -185,26 +187,42 @@ export default function DocsPage() {
                 <div>
                   <h3 className="text-lg font-semibold mb-3 text-indigo-300">Available Commands</h3>
                   <div className="grid md:grid-cols-2 gap-4">
-                    <div className="bg-slate-800/80 p-4 rounded-lg border border-indigo-500/30">
-                      <h4 className="font-semibold text-indigo-300 mb-2">Basic Scaffolding</h4>
-                      <p className="text-sm text-slate-300">Create a new project interactively</p>
-                      <CodeBlock code="pi" language="bash" />
-                    </div>
-                    <div className="bg-slate-800/80 p-4 rounded-lg border border-indigo-500/30">
-                      <h4 className="font-semibold text-indigo-300 mb-2">Named Project</h4>
-                      <p className="text-sm text-slate-300">Create project with specific name</p>
-                      <CodeBlock code="pi my-awesome-app" language="bash" />
-                    </div>
-                    <div className="bg-slate-800/80 p-4 rounded-lg border border-indigo-500/30">
-                      <h4 className="font-semibold text-indigo-300 mb-2">Current Directory</h4>
-                      <p className="text-sm text-slate-300">Use current directory name</p>
-                      <CodeBlock code="pi ." language="bash" />
-                    </div>
-                    <div className="bg-slate-800/80 p-4 rounded-lg border border-indigo-500/30">
-                      <h4 className="font-semibold text-indigo-300 mb-2">Full Command</h4>
-                      <p className="text-sm text-slate-300">Use full command name</p>
-                      <CodeBlock code="package-installer my-react-app" language="bash" />
-                    </div>
+                    <Card className="bg-slate-800/80 border-indigo-500/30">
+                      <CardHeader>
+                        <CardTitle className="text-indigo-300 text-base">Basic Scaffolding</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-sm text-slate-300 mb-3">Create a new project interactively</p>
+                        <CodeBlock code="pi" language="bash" />
+                      </CardContent>
+                    </Card>
+                    <Card className="bg-slate-800/80 border-indigo-500/30">
+                      <CardHeader>
+                        <CardTitle className="text-indigo-300 text-base">Named Project</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-sm text-slate-300 mb-3">Create project with specific name</p>
+                        <CodeBlock code="pi my-awesome-app" language="bash" />
+                      </CardContent>
+                    </Card>
+                    <Card className="bg-slate-800/80 border-indigo-500/30">
+                      <CardHeader>
+                        <CardTitle className="text-indigo-300 text-base">Current Directory</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-sm text-slate-300 mb-3">Use current directory name</p>
+                        <CodeBlock code="pi ." language="bash" />
+                      </CardContent>
+                    </Card>
+                    <Card className="bg-slate-800/80 border-indigo-500/30">
+                      <CardHeader>
+                        <CardTitle className="text-indigo-300 text-base">Full Command</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-sm text-slate-300 mb-3">Use full command name</p>
+                        <CodeBlock code="package-installer my-react-app" language="bash" />
+                      </CardContent>
+                    </Card>
                   </div>
                 </div>
               </div>
@@ -218,20 +236,24 @@ export default function DocsPage() {
 
               <div className="grid md:grid-cols-2 gap-6">
                 {frameworks.map((framework) => (
-                  <div
+                  <Card
                     key={framework.name}
-                    className="bg-slate-800/80 p-6 rounded-xl border border-indigo-500/30 hover:border-indigo-400/50 transition-all duration-300"
+                    className="bg-slate-800/80 border-indigo-500/30 hover:border-indigo-400/50 transition-all duration-300"
                   >
-                    <div className="flex items-center justify-between mb-3">
-                      <h3 className="font-bold text-lg text-indigo-300">{framework.name}</h3>
-                      <span className={`px-2 py-1 rounded-full text-xs font-semibold ${
-                        framework.type === 'Frontend' ? 'bg-blue-500/20 text-blue-300' : 'bg-green-500/20 text-green-300'
-                      }`}>
-                        {framework.type}
-                      </span>
-                    </div>
-                    <p className="text-slate-300 leading-relaxed">{framework.description}</p>
-                  </div>
+                    <CardHeader>
+                      <div className="flex items-center justify-between mb-3">
+                        <CardTitle className="text-lg text-indigo-300">{framework.name}</CardTitle>
+                        <Badge variant={framework.type === 'Frontend' ? 'default' : 'secondary'} className={
+                          framework.type === 'Frontend' ? 'bg-blue-500/20 text-blue-300' : 'bg-green-500/20 text-green-300'
+                        }>
+                          {framework.type}
+                        </Badge>
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-slate-300 leading-relaxed">{framework.description}</p>
+                    </CardContent>
+                  </Card>
                 ))}
               </div>
 
@@ -257,22 +279,38 @@ export default function DocsPage() {
                 <div>
                   <h3 className="text-lg font-semibold mb-3 text-indigo-300">Template Types</h3>
                   <div className="grid md:grid-cols-2 gap-4">
-                    <div className="bg-slate-800/80 p-4 rounded-lg border border-indigo-500/30">
-                      <h4 className="font-semibold text-indigo-300 mb-2">Basic Templates</h4>
-                      <p className="text-sm text-slate-300">Simple, clean structure for getting started</p>
-                    </div>
-                    <div className="bg-slate-800/80 p-4 rounded-lg border border-indigo-500/30">
-                      <h4 className="font-semibold text-indigo-300 mb-2">Advanced Templates</h4>
-                      <p className="text-sm text-slate-300">Full-featured, production-ready setups</p>
-                    </div>
-                    <div className="bg-slate-800/80 p-4 rounded-lg border border-indigo-500/30">
-                      <h4 className="font-semibold text-indigo-300 mb-2">Combination Templates</h4>
-                      <p className="text-sm text-slate-300">Pre-configured full-stack setups</p>
-                    </div>
-                    <div className="bg-slate-800/80 p-4 rounded-lg border border-indigo-500/30">
-                      <h4 className="font-semibold text-indigo-300 mb-2">UI Library Integration</h4>
-                      <p className="text-sm text-slate-300">Templates with Shadcn/ui, Material-UI</p>
-                    </div>
+                    <Card className="bg-slate-800/80 border-indigo-500/30">
+                      <CardHeader>
+                        <CardTitle className="text-indigo-300 text-base">Basic Templates</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-sm text-slate-300">Simple, clean structure for getting started</p>
+                      </CardContent>
+                    </Card>
+                    <Card className="bg-slate-800/80 border-indigo-500/30">
+                      <CardHeader>
+                        <CardTitle className="text-indigo-300 text-base">Advanced Templates</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-sm text-slate-300">Full-featured, production-ready setups</p>
+                      </CardContent>
+                    </Card>
+                    <Card className="bg-slate-800/80 border-indigo-500/30">
+                      <CardHeader>
+                        <CardTitle className="text-indigo-300 text-base">Combination Templates</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-sm text-slate-300">Pre-configured full-stack setups</p>
+                      </CardContent>
+                    </Card>
+                    <Card className="bg-slate-800/80 border-indigo-500/30">
+                      <CardHeader>
+                        <CardTitle className="text-indigo-300 text-base">UI Library Integration</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-sm text-slate-300">Templates with Shadcn/ui, Material-UI</p>
+                      </CardContent>
+                    </Card>
                   </div>
                 </div>
 

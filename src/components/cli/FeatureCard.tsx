@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { FadeIn } from "../animation/FadeIn";
+import { Badge } from "@/components/ui/badge";
 
 interface FeatureCardProps {
   title: string;
@@ -19,7 +20,9 @@ function FeatureCard({
       <Card className="w-full h-full bg-slate-800/80 border border-indigo-500/30 hover:border-indigo-400/50 transition-all duration-300 shadow-lg hover:shadow-indigo-700/30 p-4 sm:p-6 max-w-full sm:max-w-md mx-auto">
         <CardHeader>
           {icon && (
-            <div className={`mb-3 p-2 rounded-lg bg-gradient-to-r ${gradient} w-fit animate-bounce`}>{icon}</div>
+            <Badge className={`mb-3 p-2 rounded-lg bg-gradient-to-r ${gradient} w-fit animate-bounce text-white text-lg`}>
+              {icon}
+            </Badge>
           )}
           <CardTitle className="text-indigo-300 group-hover:text-indigo-400 transition-colors duration-200 text-base sm:text-lg">{title}</CardTitle>
         </CardHeader>

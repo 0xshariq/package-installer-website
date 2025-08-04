@@ -1,5 +1,4 @@
 "use client";
-import { useState } from "react";
 import { FadeIn } from "../animation/FadeIn";
 import { 
   Menubar, 
@@ -22,10 +21,8 @@ interface DocsNavigationProps {
 }
 
 export function DocsNavigation({ items, currentSection }: DocsNavigationProps) {
-  const [isOpen, setIsOpen] = useState(false);
-
   const handleItemClick = () => {
-    setIsOpen(false);
+    // Close menu functionality can be added here if needed
   };
 
   return (
